@@ -1,0 +1,19 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    background: hotpink;
+}
+
+.header .header__image + .header__title {
+    margin-left: 12px;
+}
+
+.header__image {
+    width: 48px;
+}
+
+.header__title {
+    margin: 0;
+}
