@@ -32,7 +32,10 @@ function App() {
         value={search}
         placeholder="Search character"
       />
-      <CharacterGallery characters={filteredCharacters} />
+      {filteredCharacters.length === 0 && <p>No characters found 🤷‍️</p>}
+      {filteredCharacters.length === 0 || (
+        <CharacterGallery characters={filteredCharacters} />
+      )}
     </div>
   )
 }
