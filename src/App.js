@@ -1,20 +1,18 @@
 import './App.css'
 import Header from './components/Header'
 import CharacterGallery from './components/CharacterGallery'
-import characterResponse from './characters-response.json'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { fetchAllCharacters } from './services/rick-and-morrty-api-service'
 
 function App() {
   const [characters, setCharacters] = useState([])
-  const [search, setSearch] = useState('Rick')
+  const [search, setSearch] = useState('')
 
-  const loadCharacters = () => {
-    setCharacters(characterResponse.results)
-  }
-
-  const clearCharacters = () => {
-    setCharacters([])
-  }
+  useEffect(() => {
+    fetchAllCharacters()
+      .then(characters => setCharacters(characters))
+      .catch(error => console.error(error))
+  }, [])
 
   const handleSearch = event => {
     const newSearch = event.target.value
@@ -28,9 +26,12 @@ function App() {
   return (
     <div>
       <Header title="Character Gallery" />
-      <button onClick={loadCharacters}>Load characters</button>
-      <button onClick={clearCharacters}>Clear Characters</button>
-      <input type="text" onChange={handleSearch} value={search} />
+      <input
+        type="text"
+        onChange={handleSearch}
+        value={search}
+        placeholder="Search character"
+      />
       <CharacterGallery characters={filteredCharacters} />
     </div>
   )
