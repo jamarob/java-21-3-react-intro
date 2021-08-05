@@ -8,8 +8,7 @@ function App() {
 
     return <div>
         <Header title="Character Gallery"/>
-        <CharacterCard character={characters[0]} />
-        <CharacterCard character={characters[1]} />
+        <CharacterGallery characters={characters} />
     </div>
 }
 
