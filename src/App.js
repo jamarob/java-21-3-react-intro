@@ -8,8 +8,8 @@ function App() {
 
     return <div>
         <Header title="Character Gallery"/>
-        <CharacterCard character={characters[0]} currywurst="foobar" />
-        <CharacterCard character={characters[1]} currywurst="böahfasel" />
+        <CharacterCard character={characters[0]} />
+        <CharacterCard character={characters[1]} />
     </div>
 }
 
