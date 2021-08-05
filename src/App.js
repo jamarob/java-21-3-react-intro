@@ -7,14 +7,19 @@ import { useState } from 'react'
 function App() {
   const [characters, setCharacters] = useState([])
 
-  const handleClick = () => {
+  const loadCharacters = () => {
     setCharacters(characterResponse.results)
+  }
+
+  const clearCharacters = () => {
+    setCharacters([])
   }
 
   return (
     <div>
       <Header title="Character Gallery" />
-      <button onClick={handleClick}>Load characters</button>
+      <button onClick={loadCharacters}>Load characters</button>
+      <button onClick={clearCharacters}>Clear Characters</button>
       <CharacterGallery characters={characters} />
     </div>
   )
