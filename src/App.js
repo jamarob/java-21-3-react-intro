@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './components/Header'
-import CharacterCard from "./components/CharacterCard";
+import CharacterGallery from "./components/CharacterGallery";
 import characterResponse from './characters-response.json'
 
 function App() {

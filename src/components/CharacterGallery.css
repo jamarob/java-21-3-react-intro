@@ -1,0 +1,9 @@
+.character-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.character-gallery .character-card {
+    margin: 12px;
+}
