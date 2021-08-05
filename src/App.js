@@ -6,6 +6,7 @@ import { useState } from 'react'
 
 function App() {
   const [characters, setCharacters] = useState([])
+  const [search, setSearch] = useState('Rick')
 
   const loadCharacters = () => {
     setCharacters(characterResponse.results)
@@ -15,12 +16,22 @@ function App() {
     setCharacters([])
   }
 
+  const handleSearch = event => {
+    const newSearch = event.target.value
+    setSearch(newSearch)
+  }
+
+  const filteredCharacters = characters.filter(character =>
+    character.name.toLowerCase().includes(search.toLowerCase())
+  )
+
   return (
     <div>
       <Header title="Character Gallery" />
       <button onClick={loadCharacters}>Load characters</button>
       <button onClick={clearCharacters}>Clear Characters</button>
-      <CharacterGallery characters={characters} />
+      <input type="text" onChange={handleSearch} value={search} />
+      <CharacterGallery characters={filteredCharacters} />
     </div>
   )
 }
